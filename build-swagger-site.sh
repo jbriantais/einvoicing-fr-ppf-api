@@ -5,6 +5,12 @@ set -Eeuxo pipefail
 echo "Create output directory for GitHub Pages content"
 mkdir "$OUTPUT_DIR"
 
+echo "Download the ZIP file containing Swagger UI"
+curl -sSLo ui.zip "$UI_ZIP_URL"
+
+echo "Extract Swagger UI"
+unzip -j ui.zip "$UI_EXTRACT_FILTER" -d "$OUTPUT_DIR"
+
 echo "Copy the html page containing Swagger UI"
 cp index.html "$OUTPUT_DIR"
 

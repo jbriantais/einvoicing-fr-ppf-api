@@ -34,7 +34,7 @@ jobs:
         id: build-swagger-site
         env:
           # TODO externalize configuration
-          UI_ZIP_URL: 'https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.3.1.zip'
+          UI_ZIP_URL: 'https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.17.14.zip'
           UI_EXTRACT_FILTER: 'swagger-ui-*/dist/*'
           SPEC_ZIP_URL: 'https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/specification_externes_b2b/dossier-de-specifications-externes-de-la-facturation-electronique-annexes-et-swaggers-v2.3.zip'
           SPEC_EXTRACT_FILTER: '*/Swaggers v?.?/*.json'

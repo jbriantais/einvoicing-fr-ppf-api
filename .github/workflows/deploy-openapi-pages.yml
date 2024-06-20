@@ -39,6 +39,7 @@ jobs:
           SPEC_ZIP_URL: 'https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/specification_externes_b2b/dossier-de-specifications-externes-de-la-facturation-electronique-annexes-et-swaggers-v2.3.zip'
           SPEC_EXTRACT_FILTER: '*/Swaggers v?.?/*.json'
           OUTPUT_DIR: '_site'
+          GOOGLE_TAG: ${{ vars.GOOGLE_TAG }}
         run: ./build-swagger-site.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

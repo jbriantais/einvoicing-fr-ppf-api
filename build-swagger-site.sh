@@ -11,8 +11,8 @@ curl -sSLo ui.zip "$UI_ZIP_URL"
 echo "Extract Swagger UI"
 unzip -j ui.zip "$UI_EXTRACT_FILTER" -d "$OUTPUT_DIR"
 
-echo "Copy the html page containing Swagger UI"
-cp index.html "$OUTPUT_DIR"
+echo "Copy the html page containing Swagger UI and add Google tag"
+sed "/<head>/a$GOOGLE_TAG" index.html > "$OUTPUT_DIR/index.html"
 
 echo "Download the ZIP file containing the OpenAPI specs"
 curl -sSLo specs.zip "$SPEC_ZIP_URL"

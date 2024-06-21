@@ -15,8 +15,8 @@ echo "Copy the html page containing Swagger UI and add Google tag"
 sed "/<head>/a$GOOGLE_TAG" index.html > "$OUTPUT_DIR/index.html"
 
 echo "Download the ZIP files containing the OpenAPI specs"
-curl -sSLo 2.3.zip "$SPEC_ZIP_URL_V2.3"
-curl -sSLo 2.4.zip "$SPEC_ZIP_URL_V2.4"
+curl -sSLo 2.3.zip "$SPEC_ZIP_URL_V2_3"
+curl -sSLo 2.4.zip "$SPEC_ZIP_URL_V2_4"
 
 echo "Extract OpenAPI specs"
 unzip -j 2.3.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs/2.3"

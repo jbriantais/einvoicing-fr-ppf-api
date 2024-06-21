@@ -14,14 +14,16 @@ unzip -j ui.zip "$UI_EXTRACT_FILTER" -d "$OUTPUT_DIR"
 echo "Copy the html page containing Swagger UI and add Google tag"
 sed "/<head>/a$GOOGLE_TAG" index.html > "$OUTPUT_DIR/index.html"
 
-echo "Download the ZIP file containing the OpenAPI specs"
-curl -sSLo specs.zip "$SPEC_ZIP_URL"
+echo "Download the ZIP files containing the OpenAPI specs"
+curl -sSLo 2.3.zip "$SPEC_ZIP_URL_V2.3"
+curl -sSLo 2.4.zip "$SPEC_ZIP_URL_V2.4"
 
 echo "Extract OpenAPI specs"
-unzip -j specs.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs"
+unzip -j 2.3.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs/2.3"
+unzip -j 2.4.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs/2.4"
 
 echo "List OpenAPI spec files in specs directory and Generate Swagger configuration file in YAML containing the relative URLs"
 (
     echo 'urls:'
-    ls -1 "$OUTPUT_DIR/specs" | sed -ne 's|^\(.*\)\.\([^.]*\)$|  - url: "specs/\1.\2"\n    name: "\1"|p'
+    find "$OUTPUT_DIR/specs" -type f -printf '%P\n' | sed -ne 's|^\(.*\)\.\([^.]*\)$|  - url: "specs/\1.\2"\n    name: "\1"|p'
 ) > _site/generated-swagger-config.yaml

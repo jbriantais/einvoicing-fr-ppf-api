@@ -20,8 +20,8 @@ curl -sSLo 2.4.zip "$SPEC_ZIP_URL_V2_4"
 
 echo "Extract OpenAPI specs"
 mkdir $OUTPUT_DIR/specs
-unzip -j 2.3.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs/2.3"
-unzip -j 2.4.zip "$SPEC_EXTRACT_FILTER" -d "$OUTPUT_DIR/specs/2.4"
+unzip -j 2.3.zip "$SPEC_EXTRACT_FILTER_V2_3" -d "$OUTPUT_DIR/specs/2.3"
+unzip -j 2.4.zip "$SPEC_EXTRACT_FILTER_V2_4" -d "$OUTPUT_DIR/specs/2.4"
 
 echo "List OpenAPI spec files in specs directory and Generate Swagger configuration file in YAML containing the relative URLs"
 (

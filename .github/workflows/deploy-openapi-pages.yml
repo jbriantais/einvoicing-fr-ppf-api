@@ -38,8 +38,10 @@ jobs:
           UI_EXTRACT_FILTER: 'swagger-ui-*/dist/*'
           SPEC_ZIP_URL_V2_3: 'https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/specification_externes_b2b/dossier-de-specifications-externes-de-la-facturation-electronique-annexes-et-swaggers-v2.3.zip'
           SPEC_ZIP_URL_V2_4: 'https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/specification_externes_b2b/version_2-4_du_19_06_2024/specifications-externes-facturation-electronique-v2.4.zip'
+          SPEC_ZIP_URL_V3_0: 'https://www.impots.gouv.fr/sites/default/files/media/1_metier/2_professionnel/EV/2_gestion/290_facturation_electronique/specification_externes_b2b/specifications-externes-v3.0.zip'
           SPEC_EXTRACT_FILTER_V2_3: '*/Swaggers v?.?/*.json'
           SPEC_EXTRACT_FILTER_V2_4: '*Swaggers V?.?/*.json'
+          SPEC_EXTRACT_FILTER_V3_0: '*Swaggers V?.?/*.json'
           OUTPUT_DIR: '_site'
           GOOGLE_TAG: ${{ vars.GOOGLE_TAG }}
         run: ./build-swagger-site.sh

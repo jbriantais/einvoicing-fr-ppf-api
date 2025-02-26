@@ -17,11 +17,13 @@ sed "/<head>/a$GOOGLE_TAG" index.html > "$OUTPUT_DIR/index.html"
 echo "Download the ZIP files containing the OpenAPI specs"
 curl -sSLo 2.3.zip "$SPEC_ZIP_URL_V2_3"
 curl -sSLo 2.4.zip "$SPEC_ZIP_URL_V2_4"
+curl -sSLo 3.0.zip "$SPEC_ZIP_URL_V3_0"
 
 echo "Extract OpenAPI specs"
 mkdir $OUTPUT_DIR/specs
 unzip -j 2.3.zip "$SPEC_EXTRACT_FILTER_V2_3" -d "$OUTPUT_DIR/specs/2.3"
 unzip -j 2.4.zip "$SPEC_EXTRACT_FILTER_V2_4" -d "$OUTPUT_DIR/specs/2.4"
+unzip -j 3.0.zip "$SPEC_EXTRACT_FILTER_V3_0" -d "$OUTPUT_DIR/specs/3.0"
 
 echo "List OpenAPI spec files in specs directory and Generate Swagger configuration file in YAML containing the relative URLs"
 (
